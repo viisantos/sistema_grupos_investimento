@@ -25,10 +25,10 @@ return new class extends Migration
             $table->string('password', 254)->nullable();
 
             //permission
-            $table->string('name', 50);
-
             $table->string('status')->default('active');
             $table->string('permission')->default('app.user');
+
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -38,6 +38,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('users', function(Blueprint $table){
+
+        });
+
         Schema::dropIfExists('user');
     }
 };
