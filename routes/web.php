@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,5 @@ use App\Http\Controllers\UserController;
 Route::get('/', [UserController::class, 'homepage']);
 
 Route::get('/cadastros', [UserController::class, 'cadastro'])->name('cadastros.cadastro');
-Route::get('/login', [UserController::class, 'login'])->name('login.fazerlogin');
+Route::get('/openlogin', [LoginController::class, 'openLogin'])->name('login.openLogin');
+Route::post('/doLogin', [LoginController::class, 'doLogin'])->name('login.doLogin');
