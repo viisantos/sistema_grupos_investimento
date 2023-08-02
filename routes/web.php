@@ -14,7 +14,8 @@ use App\Http\Controllers\LoginController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', [UserController::class, 'homepage']);
+//Route::get('/', [UserController::class, 'homepage']);
+Route::get('/home', [UserController::class, 'homepage']);
 
 Route::get('/cadastros', [UserController::class, 'cadastro'])->name('cadastros.cadastro');
 Route::get('/openlogin', [LoginController::class, 'openLogin'])->name('login.openLogin');

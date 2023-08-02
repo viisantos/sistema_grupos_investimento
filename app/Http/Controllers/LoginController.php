@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -13,7 +14,22 @@ class LoginController extends Controller
         return view('login', compact('login_page_title'));
     }
 
-    public function doLogin(){
-        
+    public function doLogin(Request $request){
+
+        $credentials = [
+            'email'    => $request->email,
+            'password' => $request->password
+        ];
+
+        Auth::attempt($credentials); 
     }
+
+    public function logout(Request $request){
+
+        Auth::logout(); 
+        return redirect()->route('login.doLogin');
+    }
+
+
+   
 }

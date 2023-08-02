@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -12,10 +13,13 @@ class UserController extends Controller
         return view('cadastro');
     }
 
-    public function homepage(): View
+    public function homepage()
     {
         $project_name = 'Sistema de gestão para grupos de investimento';
         
-        return view('welcome', compact('project_name'));
+        if(Auth::check() === true){
+            return view('welcome', compact('project_name'));
+        }
+        return redirect()->route('login.openLogin');
     }
 }

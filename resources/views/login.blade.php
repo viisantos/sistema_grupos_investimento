@@ -21,8 +21,9 @@
    <div style="align-items: center; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center;">
 
         <form action="{{ route('login.doLogin') }}" method="post">
+            @csrf 
             <label class="sr-only" for="labelUserName1">Usuario</label>
-            <input type="text" style="width: 70%;" class="form-control mb-2 mr-sm-2" id="inputUserName1" placeholder="Username">
+            <input type="text" style="width: 70%;" class="form-control mb-2 mr-sm-2" id="inputUserName1" value="vitoria@mail.com">
 
             <label class="sr-only" for="formLogin">Senha</label>
             <input type="password" style="width: 70%;" class="form-control mb-2 mr-sm-2" id="inputPasswordName1" placeholder="Password">
