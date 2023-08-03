@@ -16,10 +16,10 @@ class UserController extends Controller
     public function homepage()
     {
         $project_name = 'Sistema de gestão para grupos de investimento';
-        
+
         if(Auth::check() === true){
             return view('welcome', compact('project_name'));
         }
-        return redirect()->route('login.openLogin');
+        return redirect()->route('login.openlogin');
     }
 }

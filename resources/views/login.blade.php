@@ -21,14 +21,23 @@
    <div style="align-items: center; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center;">
 
         <form action="{{ route('login.doLogin') }}" method="post">
-            @csrf 
+            @csrf
             <label class="sr-only" for="labelUserName1">Usuario</label>
-            <input type="text" style="width: 70%;" class="form-control mb-2 mr-sm-2" id="inputUserName1" value="vitoria@mail.com">
+            <input type="text" name="email" style="width: 70%;" class="form-control mb-2 mr-sm-2" id="inputUserName1" value="vitoria@mail.com">
 
             <label class="sr-only" for="formLogin">Senha</label>
-            <input type="password" style="width: 70%;" class="form-control mb-2 mr-sm-2" id="inputPasswordName1" placeholder="Password">
+            <input type="password" name="password" style="width: 70%;" class="form-control mb-2 mr-sm-2" id="inputPasswordName1" placeholder="Password">
 
             <button type="submit" class="btn btn-primary mb-2">Submit</button>
+
+            <br>
+
+            @error('error')
+                <div class="alert alert-danger" role="alert">
+                    {{ $message }}
+                </div>
+            @enderror
+
         </form>
     </div>
 </body>

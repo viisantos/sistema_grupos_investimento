@@ -18,6 +18,7 @@ return new class extends Migration
           $table->string('social_id');
           $table->string('social_email');
           $table->string('social_avatar');
+          $table->softDeletes();
 
           $table->timestamps();
           $table->foreign('user_id')->references('id')->on('users');

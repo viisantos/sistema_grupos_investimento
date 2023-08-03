@@ -29,6 +29,7 @@ return new class extends Migration
             //$table->string('permission')->default('app.user');
 
             //$table->rememberToken();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

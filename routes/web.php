@@ -15,8 +15,9 @@ use App\Http\Controllers\LoginController;
 |
 */
 //Route::get('/', [UserController::class, 'homepage']);
-Route::get('/home', [UserController::class, 'homepage']);
+Route::get('/home', [UserController::class, 'homepage'])->name('home.homepage')->middleware('auth');
 
 Route::get('/cadastros', [UserController::class, 'cadastro'])->name('cadastros.cadastro');
 Route::get('/openlogin', [LoginController::class, 'openLogin'])->name('login.openLogin');
-Route::post('/doLogin', [LoginController::class, 'doLogin'])->name('login.doLogin');
+Route::post('/doLogin', [LoginController::class, 'doLogin'])->name('login.doLogin')->middleware('auth');
+
